@@ -37,6 +37,8 @@ void Create_1(pBTNode* node)
 int main()
 {
   pBTNode p, q;
+  InitBTree(&p);
+  InitBTree(&q);
   // p = Create_();  // 测试没问题的
   // q = Create_();
   Create_1(&p);

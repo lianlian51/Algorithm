@@ -38,7 +38,15 @@ BTNode* BuyNode(DataType data)
 
 void InitBTree(pBTNode* Tree)
 {
-  *Tree = NULL;
+  // 这里开辟的head之后一定要给Tree，不然和没开辟是一个道理
+  BTNode* head = (BTNode*)malloc(sizeof(BTNode));
+  if(head != NULL)
+  {
+    head->data_ = 0;
+    head->left_ = NULL;
+    head->right_ = NULL;
+  }
+  *Tree = head;  // 这里一定要用*Tree = head,不要用Tree=&(head),实践的结果
 }
 
 void CreateBTree(pBTNode *Tree)
@@ -47,7 +55,7 @@ void CreateBTree(pBTNode *Tree)
   std::cin >> data;
   if(data == '#')
   {
-   Tree = NULL;
+    Tree = NULL;
   }
   else 
   {
